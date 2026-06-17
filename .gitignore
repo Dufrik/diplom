@@ -1,0 +1,15 @@
+# Maven and generated files
+target/
+**/target/
+# Local project wrapper
+bin/
+# Local credentials and environment
+src/main/resources/application.properties
+.env
+.env.*
+# IDE and system files
+.DS_Store
+*.log
+.vscode/
+.idea/
+*.iml
