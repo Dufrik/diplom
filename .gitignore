@@ -13,3 +13,10 @@ src/main/resources/application.properties
 .vscode/
 .idea/
 *.iml
+
+# Generated and build artifacts
+*.class
+*.jar
+*.war
+*.ear
+*.zip
