@@ -1,0 +1,47 @@
+<div th:fragment="tableprod">
+<!--table searchresult -->
+	<table class="table">
+        <thead>
+        	<tr th:if="${admin != null}">
+        		<div class="row">
+                	<div class="col-4"><a class="btn btn-outline-success" href="/addproducts" role="button">Добавить товар</a></div>
+              	</div>
+        	</tr>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Изображение</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Изготовитель</th>
+            <th scope="col">Дата релиза</th>
+            <th scope="col">Описание</th>
+            <div th:if="${admin != null}">
+                <th scope="col"></th>
+            </div>
+        </tr>
+        </thead>
+        <tbody>
+        <div th:each="el : ${products}">
+            <tr>
+                <td><h6 th:text="${el.id}"/></td>
+                <td><img th:src ="${el.link}" height="200px" width="auto" /></td>
+                <td><h6 th:text="${el.name}"/></td>
+                <td><h6 th:text="${el.price}"/></td>
+                <td><h6 th:text="${el.count}"/></td>
+                <td><h6 th:text="${el.manufacturer}"/></td>
+                <td><h6 th:text="${el.releaseDate}"/></td>
+                <td></td> <!--  <td><img th:src = "@{${el.link)}" /></td>-->
+                <td>
+                    <div th:if="${admin != null}">
+                        <form action="/delete" method="post">
+                            <input type="hidden" name="id" th:value="${el.id}">
+                            <button type="submit" class="btn btn-outline-primary">x</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+    </table>
+</div>
